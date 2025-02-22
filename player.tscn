@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq68yin2hkojy"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_m46bs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ecr4r"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_m46bs")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(1, 2, 0.05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.05, 0, 1, 0)
+shape = SubResource("BoxShape3D_ecr4r")

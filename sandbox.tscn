@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpnd8yyryf8yw"]
+
+[ext_resource type="Texture2D" uid="uid://bfh21luw12loy" path="res://NormalMap.png" id="1_ssqt8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klcuq"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0si5"]
+albedo_color = Color(0.172419, 0.197594, 0.189667, 1)
+metallic_specular = 0.44
+roughness = 0.82
+normal_scale = 2.05
+normal_texture = ExtResource("1_ssqt8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ufrw1"]
+material = SubResource("StandardMaterial3D_m0si5")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lwmqp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.982
+anchor_bottom = 0.867
+offset_right = -1091.26
+offset_bottom = -521.816
+
+[node name="EnemyHealthLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1042.0
+offset_top = 4.0
+offset_right = 1102.0
+offset_bottom = 27.0
+text = "Health: "
+
+[node name="EnemyHealthCounter" type="Label" parent="Control/EnemyHealthLabel"]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 120.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="HealthLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 85.0
+offset_bottom = 38.0
+text = "Health: "
+
+[node name="HealthCounter" type="Label" parent="Control/HealthLabel"]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 120.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 483.0
+offset_top = 19.0
+offset_right = 613.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "Roll"
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_klcuq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_ufrw1")
+
+[node name="Enemy" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16018, 0, 0.555282)
+mass = 0.037
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Enemy"]
+rings = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+shape = SubResource("SphereShape3D_lwmqp")
+
+[node name="THE FUCKING SUN OH MY GOD" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.46529, 0.885158, 0, -0.885158, 0.46529, 0, 5.02012, 0)
+light_energy = 0.838
+shadow_enabled = true
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520808, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.992533, 0.121973, 0, -0.121973, 0.992533, 0.791527, 1.63486, 3.95495)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11601, 0, 0)
