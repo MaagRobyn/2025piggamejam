@@ -102,3 +102,9 @@ transform = Transform3D(1, 0, 0, 0, 0.992533, 0.121973, 0, -0.121973, 0.992533, 
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11601, 0, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 473.0
+offset_top = 69.0
+offset_right = 664.0
+offset_bottom = 159.0
