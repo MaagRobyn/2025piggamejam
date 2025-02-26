@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public partial class DieController : Area2D
 {
 	[Export]
-	public string[] Faces { get; set; }
+	public DieFace[] Faces { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Faces = DirAccess.GetFilesAt("res://dietexture");
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

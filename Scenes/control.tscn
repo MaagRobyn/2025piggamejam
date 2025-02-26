@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3fhqvay74gd7"]
 
-[ext_resource type="Script" path="res://DieController.cs" id="1_8riph"]
-[ext_resource type="Texture2D" uid="uid://dv5ifk6pynm6d" path="res://dietexture/blankdie.png" id="2_knee8"]
+[ext_resource type="Script" path="res://Scripts/DieController.cs" id="1_8riph"]
+[ext_resource type="Texture2D" uid="uid://dv5ifk6pynm6d" path="res://Textures/dietexture/blankdie.png" id="2_knee8"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("Faces")]
 layout_mode = 3
